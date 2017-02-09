@@ -1,0 +1,197 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\calP}{\mathcal{P}}
+
+\DeclareMathOperator{\vsspan}{span}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Taylor Pool}  \\
+Math 290 Sec 2\\
+Date Feb 7, 2017
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment 11} \\
+\textsf{Exercises: 11.1-11.6}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.1a}
+Prove there exist $a,b \in \Q$ such that $a^b \in \Q$.
+\end{exercise}
+
+\begin{proof}
+Fix $a=1$, $b=2$. Then $a^b=1^2 \in \Q$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.1b}
+Prove there exist $a,b \in \Q$ such that $a^b \in \R - \Q$.
+\end{exercise}
+
+\begin{proof}[Solution]
+Fix $a=2$, $b= \frac{1}{2}$. Then $a^b=2^\frac{1}{2}=\sqrt{2}$, which we have previously proved to be irrational.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.1c}
+Prove there exist $a,b \in \R - \Q$ such that $a^b \in \R - \Q$.
+\end{exercise}
+
+\begin{proof}
+Let $a,b \in \R-\Q$.There are two cases.
+
+Case 1: $\sqrt{2}^sqrt{2}$ is irrational.\\
+Then $a,b=\sqrt{2}$, so we are done.
+
+Case 2: $\sqrt{2}^{\sqrt{2}}$ is rational.\\
+Then $\sqrt{2}^{\sqrt{2}}\sqrt{2}$ is irrational.\\
+$(\sqrt{2}^{\sqrt{2}})\sqrt{2}=\sqrt{2}^{\sqrt{2}+1}$\\
+So let $a=\sqrt{2}, b=\sqrt{2}+1$. We are done.
+\end{proof}
+
+\begin{exercise}{11.1d}
+Prove there exist $a \in \Q$ and $b \in \R - \Q$ such that $a^b \in \Q$.
+\end{exercise}
+
+\begin{proof}
+Fix $a=1, b = \sqrt{2}$. So $a^{b}=1^{\sqrt{2}}=1 \in \Q$.
+\end{proof}
+
+\begin{exercise}{11.1e}
+Prove there exist $a \in \Q$ and $b \in \R - \Q$ such that $a^b \in \R - \Q$
+\end{exercise}
+
+\begin{proof}
+Fix $a \in \Q, b \in \R-\Q$. There are two cases.
+
+Case 1: $2^{\frac{1}{\sqrt{2}}}$ is irrational.\\
+Then let $a=2, b = \frac{1}{\sqrt{2}}$. We are done.
+
+Case 2: $2^{\frac{1}{\sqrt{2}}}$ is rational.\\
+Then let a = $2^{\frac{1}{\sqrt{2}}}, b=\frac{1}{\sqrt{2}}$. So $2^{\frac{1}{\sqrt{2}}^{\frac{1}{\sqrt{2}}}} = 2^{\frac{1}{2}} = \sqrt{2}$, which is irrational.
+\end{proof}
+
+\begin{exercise}{11.1f}
+Prove there exist $a \in \R-\Q$ and $b \in \Q$ such that $a^b \in \Q$.
+\end{exercise}
+
+\begin{proof}
+Fix $a= \frac{1}{\sqrt{2}}, b=2$, so $a^b=(\frac{1}{\sqrt{2}})^2 = \frac{1}{2} \in \Q$.
+\end{proof}
+
+\begin{exercise}{11.1g}
+Prove there exist $a \in \R-\Q$ and $b \in \Q$ such that $a^b \in \R-\Q$.
+\end{exercise}
+
+\begin{proof}
+Fix $a=\frac{1}{\sqrt{2}}, b=1$, so $a^b=(\frac{1}{\sqrt{2}})^1= \frac{1}{\sqrt{2}} \in \R-\Q$.
+\end{proof}
+
+\begin{exercise}{11.2a}
+Let $n$ be an integer larger than $\frac{1}{y-x}$. We then have $ny-nx=n(y-x) < \frac{1}{y-x}(y-x)=1$. Explain why this proves that there is an integer strictly between $nx$ and $ny$.
+\end{exercise}
+
+\begin{proof}
+Since $n,x,y \in \Z$, and $n(y-x) < 1$, this means that $y-x \in \Z$.\\
+Hence, $ny<nx+1$. Let $z \in \Z$ be the largest integer smaller than $nx$. Then, $z<nx\leq z+1<nx+1<ny$. Hence, $z \in (nx,ny)$. So we are done.
+\end{proof}
+
+\begin{exercise}{11.2b}
+Let $m$ be an integer between $nx$ and $ny$. Show $\frac{m}{n} \in \Q$ is in the interval $(x,y)$.
+\end{exercise}
+
+\begin{proof}
+Let $m\in \Z, nx < m < ny$. Then $x < \frac{m}{n} < y$. So we are done.
+\end{proof}
+
+\begin{exercise}{11.3}
+Prove or disprove: Given $x \in \Q$ and $y \in \R-\Q$, then $xy \in \R-\Q$.
+\end{exercise}
+
+\begin{proof}
+Assume, by way of contradiction, that $x \in \Q$ and $y \in \R-\Q$ and $xy \in \Q$.\\
+Thus, $x = \frac{p}{q}, xy = \frac{r}{s}$ for some $p,r \in \Z and q,s \in \N$.\\
+Note that $p \neq 0$.\\
+Then $y=\frac{q}{p}\frac{p}{q}y = \frac{q}{p}xy = \frac{qr}{ps}$, but this is a contradiction, since $\frac{qr}{ps} \in \Q$ but $y \in \R-\Q$. So we are done.
+\end{proof}
+
+\begin{exercise}{11.4}
+Prove or disprove: Let $s \in \Z$. If $6s-3$ is odd, then $s$ is odd.
+\end{exercise}
+
+\begin{proof}
+Assume, by way of the contrapositive that $s$ is even, so $s=2k$ for some $k \in \Z$.\\
+Thus, $6s-3=6(2k)-3=12k-3=12k-4+1=2(6k-2)+1$, which is odd. this violates the contrapositive property for truthfulness.\\
+So this statement is disproved.
+\end{proof}
+
+\begin{exercise}{11.5}
+Prove or disprove: There exists an integer $x$ such that $x^2+x$ is odd.
+\end{exercise}
+
+\begin{proof}
+Let $x$ be an arbitrary integer. There are two cases.
+
+Case 1: Suppose $x$ is odd.\\
+Thus, $x=2k+1$ for some $k \in \Z$.\\
+$x^{2}+x=(2k+1)^{2}+(2k+1)=4k^{2}+4k+1+2k+1=4k^{2}+6K+2=2(2k^{2}+3k+1)$, which is even.
+
+Case 2: Suppose $x$ is even.\\
+Thus, $x=2k$ for some $k \in \Z$.\\
+$x^{2}+x=(2k)^{2}+2k=4k^{2}+2k+2(2k^{2}+k)$, which is even.
+
+Thus, in all cases, $x^{2}+x$ is even for any integer $x$.
+\end{proof}
+
+\begin{exercise}{11.6}
+Prove or disprove: Given any positive rational number $a$, there is an irrational number $x \in (0,a)$.
+\end{exercise}
+
+\begin{proof}
+Let $a \in \Q, a > 0$.\\
+Assume $\frac{1}{\sqrt{2}}$ is irrational.\\
+Since $1<2, \sqrt{1} < \sqrt{2}$. Thus, $\frac{1}{\sqrt{1}} = 1 > \frac{1}{\sqrt{2}}$.\\
+$0 < a\frac{1}{\sqrt{2}} < a$. Since a rational number multiplied by an irrational number is always irrational, and since $\frac{1}{\sqrt{2}} < 1$, we are done.
+\end{proof}
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}

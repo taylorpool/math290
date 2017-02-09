@@ -1,0 +1,95 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\calP}{\mathcal{P}}
+
+\DeclareMathOperator{\vsspan}{span}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Taylor Pool}  \\
+Math 290 Sec 2\\
+Date Jan 23, 2017
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment 1} \\
+\textsf{Exercises: 1}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{1}
+Turn in a replica of the following two paragraphs (don't worry about the font size, or getting the line breaks to match up- just produce readable text that says the same thing, with the same appearance.
+\end{exercise}
+
+\begin{proof}
+The Cartesian product (or simply the product) $A\times B$ of two sets $A$ and $B$ is the set consisting of all ordered pairs whose first coordinate belongs to $A$ and whose second coordinate belongs to $B$. In other words, \[A \times B = \{(a,b):a \in A \text{ and } b \in B\}. \]
+For example, if $A=\{x,y\}$ and $B=\{1,2,3\}$, then
+\[A \times B = \{(x,1),(x,2),(x,3),(y,1),(y,2),(y,3)\} \text{;}\]
+while
+\[B \times A = \{(1,x)(1,y),(2,x),(2,y),(3,x),(3,y)\} \text{.}\]
+
+Since, for example, $(x,1) \in A \times B$ and $(x,1) \notin B \times A$, these two sets do not contain the same elements, so $A \times B \neq B \times A$. If $A = \emptyset \text{ or } B = \emptyset$, then $A \times B = \emptyset$.
+
+For the sets $A$ and $B$ just mentioned, $|A|=2$ and $|B|=3$; while $|A \times B|=|B \times A| = 6$. Indeed, for all finite sets $A$ and $B$,
+\[|A \times B| = |A| \cdot |B| \text{.}\]
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{exercise}{???}
+%The statement of the exercise goes here.
+%\end{exercise}
+
+%\begin{proof}[Solution]
+%The explanation or solution goes here.
+%\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{exercise}{???}
+%The statement of the exercise goes here.
+%\end{exercise}
+
+%\begin{proof}
+%The proof goes here.
+%\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}
