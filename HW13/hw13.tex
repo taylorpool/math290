@@ -1,0 +1,246 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\calP}{\mathcal{P}}
+
+\DeclareMathOperator{\vsspan}{span}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Taylor Pool}  \\
+Math 290 Sec 2\\
+Date Feb 14, 2017
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment 1} \\
+\textsf{Exercises: 1}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{13.1}
+Prove that for every $n \in \N$,
+\\
+\begin{equation*}
+\sum_{i=1}^n (2i-1) = n^2.
+\end{equation*}
+\end{exercise}
+
+\begin{proof}
+Let $P(n): \sum_{i=1}^n (2i-1) = n^2$.
+\subparagraph*{Base Case:}
+Prove $P(1): \sum_{i=1}^1 (2i-1) = 1^2$.\\
+$2(1)-1=1$ so
+$1=1$, which is true.
+
+\subparagraph*{Inductive Step:}
+Assume $P(k): \sum_{i=1}^k (2i-1) = k^2$.\\
+Then we need to prove $P(k+1):\sum_{i=1}^{k+1} (2i-1) = (k+1)^2$.\\
+We begin on the left-hand side.\\
+\begin{align*}
+\sum_{i=1}^{k+1} (2i-1) &= \sum_{i=1}^k (2i-1) + 2(k+1)-1 \\
+&= k^2+2k+1 \\
+&= (k+1)^2
+\end{align*}
+But $(k+1)^2$ is the right-hand side, so we have proved $P(k+1)$.\\
+Thus, by induction, $P(n)$ is true for all $n \in \N$.
+\end{proof}
+
+\begin{exercise}{13.2}
+Prove that for every $n \in \N$,
+\begin{equation*}
+\sum_{i=1}^n \frac{1}{(2i-1)(2i+1)} = \frac{n}{2n+1}
+\end{equation*}
+\end{exercise}
+
+\begin{proof}
+\begin{equation*}
+\text{Let~} P(n): \sum_{i=1}^n \frac{1}{(2i-1)(2i+1)} = \frac{n}{2n+1}
+\end{equation*}
+
+\subparagraph*{Base Case:}
+Prove $P(1): \sum_{i=1}^1 \frac{1}{(2i-1)(2i+1)} = \frac{1}{2(1)+1}$.\\
+$\frac{1}{(2-1)(2+1)} = \frac{1}{3}$ so $\frac{1}{3} = \frac{1}{3}$, which is true.
+
+\subparagraph*{Inductive Step:}
+Assume $P(k): \sum_{i=1}^k \frac{1}{(2i-1)(2i+1)} = \frac{k}{2k+1}$.
+
+Then we need to prove 
+\begin{equation*}
+P(k+1): \sum_{i=1}^{k+1} \frac{1}{(2i-1)(2i+1)} = \frac{k+1}{2(k+1)+1} \text{~is true.}
+\end{equation*}
+
+\begin{align*}
+\textit{LHS} = \sum_{i=1}^{k+1} \frac{1}{(2i-1)(2i+1)} &= \sum_{i=1}^k \frac{1}{(2i-1)(2i+1)} + \frac{1}{[2(k+1)-1][2(k+1)+1]} \\
+&= \frac{k}{2k+1} + \frac{1}{(2k+1)(2k+3)} \\
+&= \frac{k(2k+3)+1}{(2k+1)(2k+3)}\\
+&= \frac{2k^2+3k+1}{(2k+1)(2k+3)}\\
+&= \frac{(2k+1)(k+1)}{(2k+1)(2k+3)}\\
+&= \frac{k+1}{2k+3}\\
+&= \frac{k+1}{2(k+1)+1} = \textit{RHS}
+\end{align*}
+
+Thus, since $P(k+1)$ is true, we have proved the proposition by mathematical induction.
+\end{proof}
+
+\begin{exercise}{13.3}
+Prove that for every $n \in \N$,
+\begin{equation*}
+\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}
+\end{equation*}
+\end{exercise}
+
+\begin{proof}
+
+
+\begin{equation*}
+\text{Let~} P(n): \sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}
+\end{equation*}
+
+\subparagraph*{Base Case:}
+Prove $P(1): \sum_{i=1}^1 i^2 = \frac{(1)(1+1)(2(1)+1)}{6}$.\\
+$1^2 = \frac{2(3)}{6}$, so $P(1)$ is true.
+
+\subparagraph*{Inductive Step:}
+Assume $P(K): \sum_{i=1}^k i^2 = \frac{k(k+1)(2k+1)}{6}$.\\
+Then we need to prove
+\begin{equation*}
+P(k+1): \sum_{i=1}^{k+1} i^2 = \frac{(k+1)(k+1+1)(2(k+1)+1)}{6} \text{~is true.}
+\end{equation*}
+
+
+\begin{align*}
+\textit{LHS} = \sum_{i=1}^{k+1} i^2 &= \sum_{i=1}^k i^2+(k+1)^2 \\
+&= \frac{k(k+1)(2k+1)}{6}+(k+1)^2 \\
+&= \frac{k(k+1)(2k+1)+6(k+1)^2}{6} \\
+&= \frac{(k+1)[k(2k+1)+6(k+1)]}{6} \\
+&= \frac{(k+1)(2k^2+7k+6)}{6} \\
+&= \frac{(k+1)(k+2)(2k+3)}{6} \\
+&= \frac{(k+1)(k+1+1)(2(k+1)+1)}{6} = \textit{RHS}
+\end{align*}
+
+Thus, since $P(k+1)$ is true when $P(k)$ is true, and since $P(1)$ is true, we have proved the proposition by mathematical induction.
+\end{proof}
+
+\begin{exercise}{13.4}
+Prove that for every $n \in \N$, $n < 3^n$.
+\end{exercise}
+
+\begin{proof}
+Let $P(n): n < 3^n$.
+
+\subparagraph*{Base Case:}
+Prove $P(1): 1 < 3^1$. \\
+$1 < 3$, so $P(1)$ is true.
+
+\subparagraph*{Inductive Step:}
+Assume $P(k): k < 3^k$ is true. \\
+Then we need to prove $P(k+1): k+1 < 3^{k+1}$ is true. \\
+
+\begin{align*}
+\textit{RHS} = k+1 < 3^k+1
+% Continue here!
+\end{align*}
+\end{proof}
+
+\begin{exercise}{13.5}
+Let $a,x \in \R$, with $x \not=1$. Prove that $\forall n \in \N$,
+\begin{equation*}
+\sum_{i=0}^n x_i = \frac{1-x^{n+1}}{1-x}
+\end{equation*}
+\end{exercise}
+
+\begin{proof}
+\begin{equation*}
+\text{Let~} P(n): \sum_{i=0}^n x_i = \frac{1-x^{n+1}}{1-x}
+\end{equation*}
+
+\subparagraph*{Base Case:}
+\begin{equation*}
+\text{Prove~} P(1): \sum_{i=0}^1 x_i = \frac{1-x^{1+1}}{1-x}
+\end{equation*}
+\begin{align*}
+\sum_{i=0}^1 x_i &= \frac{1-x^{1+1}}{1-x}\\
+x^0+x^1 &= \frac{1-x^2}{1-x}\\
+1+x &= \frac{1-x^2}{1-x}\\
+\frac{(1+x)(1-x)}{1-x} &= \frac{1-x^2}{1-x}\\
+\frac{1-x^2}{1-x} &= \frac{1-x^2}{1-x}
+\end{align*}
+Thus, we have proved the base case.
+
+\subparagraph*{Inductive Step:} 
+\begin{equation*}
+\text{Assume~} P(k): \sum_{i=0}^k x_i = \frac{1-x^{k+1}}{1-x} \text{~is true.}
+\end{equation*}
+
+\begin{equation*}
+\text{Prove~} P(k+1): \sum_{i=0}^{k+1} x_i = \frac{1-x^{k+1+1}}{1-x} \text{~is true.}
+\end{equation*}
+
+\begin{align*}
+\textit{LHS} = \sum_{i=0}^{k+1} x_i &= \sum_{i=0}^k x^i + x^{k+1}\\
+&= \frac{1-x^{k+1}}{1-x} + x^{k+1} \\
+&= \frac{1-x^{k+1}+(1-x)x^{k+1}}{1-x} \\
+&= \frac{1-x^{k+1}+x^{k+1}-x^{k+2}}{1-x} \\
+&= \frac{1-x^{k+2}}{1-x} = \textit{RHS}
+\end{align*}
+
+Thus, since $P(1)$ is true and $P(k+1)$ is true if $P(k)$ is true, we have proved the proposition.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{exercise}{???}
+%The statement of the exercise goes here.
+%\end{exercise}
+
+%\begin{proof}[Solution]
+%The explanation or solution goes here.
+%\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{exercise}{???}
+%The statement of the exercise goes here.
+%\end{exercise}
+
+%\begin{proof}
+%The proof goes here.
+%\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}
